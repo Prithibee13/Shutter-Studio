@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Card, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import { useCreateUserWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth'
 import SocialLogin from '../SocialLogin/SocialLogin';
@@ -10,6 +10,7 @@ const Register = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate()
 
     const [
         createUserWithEmailAndPassword,
@@ -21,6 +22,10 @@ const Register = () => {
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
     
     const [signInWithGithub, githubUser, githubLoading, githubError] = useSignInWithGithub(auth);
+
+    if (user || googleUser || githubUser) {
+        navigate('/home');
+    }
 
 
     
