@@ -1,0 +1,8 @@
+.card-btn
+{
+    border: 1px solid transparent;
+    background-color: #6ECB63;
+    color: white;
+    border-radius: 5px;
+    padding: 0.5rem 0.6rem;
+}

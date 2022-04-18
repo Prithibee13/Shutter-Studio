@@ -6,7 +6,7 @@ const Footer = () =>
     const date = new Date();
     const year = date.getFullYear();
     return (
-        <footer className='p-5 mar-20'>
+        <footer className='p-5'>
             <div className="container">
                 <div className="row g-5">
                     <div className="col-md-4 col-12">
