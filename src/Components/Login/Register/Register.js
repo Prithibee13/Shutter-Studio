@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button, Card, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import auth from '../../../firebase.init';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth'
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth'
 import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Register = () => {
@@ -17,6 +17,12 @@ const Register = () => {
         loading,
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
+
+    const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
+
+
+
+
 
     const getName = (event) => {
         const name = event.target.value;
@@ -37,6 +43,8 @@ const Register = () => {
         event.preventDefault();
         createUserWithEmailAndPassword(email , password)
     }
+
+    const type = "up"
 
     return (
         <div className='mar-10'>
@@ -62,13 +70,13 @@ const Register = () => {
                                             <Form.Control className='form-control-md' onBlur={getPassword} type="password" placeholder="Password" required />
                                         </Form.Group>
                                         <Button variant="primary" type="submit">
-                                            Submit
+                                            Register
                                         </Button>
                                     </Form>
                                     <div>
                                         <p>Already registered? <Link to='/login'> <button className='ms-3 btn btn-danger text-white'>Please login Here</button> </Link> </p>
                                     </div>
-                                    <SocialLogin></SocialLogin>
+                                    <SocialLogin type={type} signInWithGoogle = {signInWithGoogle}></SocialLogin>
                                 </Card.Text>
                             </Card.Body>
                         </Card>

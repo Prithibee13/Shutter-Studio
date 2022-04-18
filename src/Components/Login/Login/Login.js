@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import { Button, Card, Form } from 'react-bootstrap';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
 
-const Login = () => 
-{
-    const [email , SetEmail] = useState('');
-    const [password , setPassword] = useState('');
-
+const Login = () => {
+    const [email, SetEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const type = 'in'
     const navigate = useNavigate();
 
     const [
@@ -17,28 +16,28 @@ const Login = () =>
         user,
         loading,
         error,
-      ] = useSignInWithEmailAndPassword(auth);
+    ] = useSignInWithEmailAndPassword(auth);
 
-    const getEmail = (event) =>
-    {
+    
+    const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
+    
+
+    const getEmail = (event) => {
         const email = event.target.value;
         SetEmail(email);
     }
 
-    const getPassword = (event) =>
-    {
+    const getPassword = (event) => {
         const password = event.target.value;
         setPassword(password)
     }
 
-    const handleSubmuit = (event) =>
-    {
+    const handleSubmuit = (event) => {
         event.preventDefault();
-        signInWithEmailAndPassword(email , password)
+        signInWithEmailAndPassword(email, password)
     }
 
-    if(user)
-    {
+    if (user) {
         navigate('/home');
     }
 
@@ -69,10 +68,9 @@ const Login = () =>
                                         </Button>
                                     </Form>
                                     <div>
-
                                         <p>New in Shutter Studio? <Link to='/register'> <button className='ms-3 btn btn-danger text-white'>Please Register Here</button> </Link> </p>
                                     </div>
-                                    <SocialLogin></SocialLogin>
+                                    <SocialLogin type={type} signInWithGoogle={signInWithGoogle}></SocialLogin>
                                 </Card.Text>
                             </Card.Body>
                         </Card>
