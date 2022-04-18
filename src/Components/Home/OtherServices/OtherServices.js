@@ -7,7 +7,7 @@ import "./OtherService.css"
 const OtherServices = () => {
     return (
         <div className='mar-20'>
-            <h2 className='text-center'>Other Services</h2>
+            <h2 className='text-center my-3 py-3'>Other Services</h2>
             <div className="container">
                 <div class="row row-cols-1 row-cols-md-3 g-5">
                     <div className="col">

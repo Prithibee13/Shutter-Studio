@@ -14,7 +14,8 @@ const About = () => {
                     <div className="col-md-6 col-12">
                         <img src={my_img} className="w-100 rounded" alt="" />
                     </div>
-                    <div className="col-md-4 col-12 mx-auto">
+                    <div className="col-md-5 col-12 mx-auto">
+                        <h3 className='text-center my-3 py-3'>My planning on hardworking</h3>
                         <p>I do my work very calmly. So I try do it with cool head. I try to learn new things evrey day. I try to practice them every day. I believe practice makes a man perfect. So I practice my learned work day by day . It make me stronger in these area.</p>
                     </div>
                 </div>
