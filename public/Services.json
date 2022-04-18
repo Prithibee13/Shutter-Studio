@@ -2,7 +2,7 @@
     {
       "id": 1,
       "title": "Potrait",
-      "description": "" ,
+      "description": "Best potrait snap in town. Our experienced potrait team devoted them to collect our clients best momments. Save your best moments in potrait mood with our team." ,
       "img": "https://i.ibb.co/GsHZj1F/luke-porter-T-K3jg-Sqi2-I-unsplash.jpg",
       "price": 1000,
       "rating" : 5.00
@@ -10,7 +10,7 @@
     {
       "id": 2,
       "title": "Wedding",
-      "description": "",
+      "description": "We have a devoted and hard-working mate in our wedding photography team. Our team is always ready for wedding ceremonies. Save your wedding momemnts with us.",
       "img": "https://i.ibb.co/FBM6y7M/drew-coffman-ll-Wjwo200fo-unsplash.jpg",
       "price": 2500,
       "rating" : 4.50
@@ -18,7 +18,7 @@
     {
       "id": 3,
       "title": "Birds",
-      "description": "",
+      "description": "Fly with your wings. We have best aviary snappers in town. Collect beutiful birds photo with us.Give some design your wall with our bird pictures.",
       "img": "https://i.ibb.co/6bgTqJB/boris-smokrovic-RLLR0o-Rz16-Y-unsplash.jpg",
       "price": 800,
       "rating" : 5.00
@@ -26,7 +26,7 @@
     {
       "id": 4,
       "title": "Nature",
-      "description" : "",
+      "description" : "We have a passionate nature lovers in our team. They are so much devoted in their work , that they capture best mothernature shots in town. ",
       "img": "https://i.ibb.co/PtJ0bcb/derek-thomson-TWo-L-QCZub-Y-unsplash.jpg",
       "price": 1200,
       "rating" : 5.00  
@@ -35,7 +35,7 @@
     {
       "id": 5,
       "title": "Events",
-      "description" : "",
+      "description" : "Seminars/music/concert?Wants to capture best momments of get-together?We have best Event photography team in town.Take your best shots with us.",
       "img": "https://i.ibb.co/X3Pn4jP/headway-F2-KRf-Qf-Cqw-unsplash.jpg",
       "price": 1400,
       "rating" : 4.00
@@ -44,7 +44,7 @@
     {
       "id": 6,
       "title": "Traveling",
-      "description" : "",
+      "description" : "Travel in the edge of the world,our team will follow you.Beach,forest,desert,hills we do our work in any travelling spot.Capture your best travelling momments with us.",
       "img": "https://i.ibb.co/StXHVnD/pietro-de-grandi-T7-K4a-EPo-GGk-unsplash.jpg",
       "price": 2000,
       "rating" : 4.50

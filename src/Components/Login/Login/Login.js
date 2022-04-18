@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Card, Form } from 'react-bootstrap';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
@@ -20,6 +20,7 @@ const Login = () => {
 
     
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
+    const [signInWithGithub, githubUser, githubLoading, githubError] = useSignInWithGithub(auth);
     
 
     const getEmail = (event) => {
@@ -70,7 +71,7 @@ const Login = () => {
                                     <div>
                                         <p>New in Shutter Studio? <Link to='/register'> <button className='ms-3 btn btn-danger text-white'>Please Register Here</button> </Link> </p>
                                     </div>
-                                    <SocialLogin type={type} signInWithGoogle={signInWithGoogle}></SocialLogin>
+                                    <SocialLogin type={type} signInWithGoogle={signInWithGoogle} signInWithGithub = {signInWithGithub}></SocialLogin>
                                 </Card.Text>
                             </Card.Body>
                         </Card>

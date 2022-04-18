@@ -7,7 +7,7 @@ import git_icon from "../../../images/icon/git-icon.png"
 
 const SocialLogin = (props) => 
 {
-    const { type , signInWithGoogle } = props;
+    const { type , signInWithGoogle , signInWithGithub } = props;
     return (
         <div>
             <article className='d-flex align-items-center'>
@@ -24,7 +24,7 @@ const SocialLogin = (props) =>
                     <img height={25} className="me-2" src={fb_icon} alt="" />
                     Sign{type} with Facebook
                 </button>
-                <button className='w-50 d-block border-0 shadow-md p-2 mb-3 mx-auto rounded'>
+                <button className='w-50 d-block border-0 shadow-md p-2 mb-3 mx-auto rounded' onClick={() => signInWithGithub()}>
                     <img height={25} className="me-3" src={git_icon} alt="" />
                     Sign{type} with Github
                 </button>

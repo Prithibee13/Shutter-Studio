@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button, Card, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import auth from '../../../firebase.init';
-import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth'
+import { useCreateUserWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth'
 import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Register = () => {
@@ -19,6 +19,8 @@ const Register = () => {
     ] = useCreateUserWithEmailAndPassword(auth);
 
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
+    
+    const [signInWithGithub, githubUser, githubLoading, githubError] = useSignInWithGithub(auth);
 
 
 
@@ -76,7 +78,7 @@ const Register = () => {
                                     <div>
                                         <p>Already registered? <Link to='/login'> <button className='ms-3 btn btn-danger text-white'>Please login Here</button> </Link> </p>
                                     </div>
-                                    <SocialLogin type={type} signInWithGoogle = {signInWithGoogle}></SocialLogin>
+                                    <SocialLogin type={type} signInWithGoogle = {signInWithGoogle} signInWithGithub = {signInWithGithub}></SocialLogin>
                                 </Card.Text>
                             </Card.Body>
                         </Card>
