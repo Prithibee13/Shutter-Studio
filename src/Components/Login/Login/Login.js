@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Card, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Login = () => {
     return (
@@ -28,6 +29,7 @@ const Login = () => {
                                         </Button>
                                     </Form>
                                     <p>New in Shutter Studio? <Link to='/register'> <button className='ms-3 btn btn-danger text-white'>Please Register Here</button> </Link> </p>
+                                    <SocialLogin></SocialLogin>
                                 </Card.Text>
                             </Card.Body>
                         </Card>

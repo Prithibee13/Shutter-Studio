@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Card, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Register = () => {
     return (
@@ -31,6 +32,7 @@ const Register = () => {
                                         </Button>
                                     </Form>
                                     <p>Already registered? <Link to='/login'> <button className='ms-3 btn btn-danger text-white'>Please login Here</button> </Link> </p>
+                                    <SocialLogin></SocialLogin>
                                 </Card.Text>
                             </Card.Body>
                         </Card>
