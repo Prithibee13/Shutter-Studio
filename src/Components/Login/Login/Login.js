@@ -1,9 +1,49 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Card, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { Link, useNavigate } from 'react-router-dom';
+import auth from '../../../firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
 
-const Login = () => {
+const Login = () => 
+{
+    const [email , SetEmail] = useState('');
+    const [password , setPassword] = useState('');
+
+    const navigate = useNavigate();
+
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+      ] = useSignInWithEmailAndPassword(auth);
+
+    const getEmail = (event) =>
+    {
+        const email = event.target.value;
+        SetEmail(email);
+    }
+
+    const getPassword = (event) =>
+    {
+        const password = event.target.value;
+        setPassword(password)
+    }
+
+    const handleSubmuit = (event) =>
+    {
+        event.preventDefault();
+        signInWithEmailAndPassword(email , password)
+    }
+
+    if(user)
+    {
+        navigate('/home');
+    }
+
+
+
     return (
         <div className='mar-20'>
             <div className="container">
@@ -16,19 +56,22 @@ const Login = () => {
                                     Please fill up the form to log in
                                 </Card.Subtitle>
                                 <Card.Text>
-                                    <Form className='my-3 py-3'>
+                                    <Form className='my-3 py-3' onSubmit={handleSubmuit}>
                                         <Form.Group className="mb-5" controlId="formBasicEmail">
-                                            <Form.Control className='form-control-md' type="email" placeholder="Enter email" required/>
+                                            <Form.Control className='form-control-md' onBlur={getEmail} type="email" placeholder="Enter email" required />
                                         </Form.Group>
 
                                         <Form.Group className="mb-5" controlId="formBasicPassword">
-                                            <Form.Control className='form-control-md' type="password" placeholder="Password" required/>
+                                            <Form.Control className='form-control-md' onBlur={getPassword} type="password" placeholder="Password" required />
                                         </Form.Group>
                                         <Button variant="primary" type="submit">
-                                            Submit
+                                            Login
                                         </Button>
                                     </Form>
-                                    <p>New in Shutter Studio? <Link to='/register'> <button className='ms-3 btn btn-danger text-white'>Please Register Here</button> </Link> </p>
+                                    <div>
+
+                                        <p>New in Shutter Studio? <Link to='/register'> <button className='ms-3 btn btn-danger text-white'>Please Register Here</button> </Link> </p>
+                                    </div>
                                     <SocialLogin></SocialLogin>
                                 </Card.Text>
                             </Card.Body>
