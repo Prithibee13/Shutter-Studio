@@ -17,12 +17,14 @@ const Register = () => {
         user,
         loading,
         error,
-    ] = useCreateUserWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth , {sendEmailVerification : true});
 
-    const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
+    const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth , {sendEmailVerification : true});
     
-    const [signInWithGithub, githubUser, githubLoading, githubError] = useSignInWithGithub(auth);
+    const [signInWithGithub, githubUser, githubLoading, githubError] = useSignInWithGithub(auth , {sendEmailVerification : true});
 
+    
+    
     if (user || googleUser || githubUser) {
         navigate('/home');
     }
@@ -45,7 +47,7 @@ const Register = () => {
         setPassword(password)
     }
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async(event) => {
         event.preventDefault();
         createUserWithEmailAndPassword(email , password)
     }
