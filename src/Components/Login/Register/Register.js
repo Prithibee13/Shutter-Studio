@@ -23,8 +23,7 @@ const Register = () => {
     const [signInWithGithub, githubUser, githubLoading, githubError] = useSignInWithGithub(auth);
 
 
-
-
+    
 
     const getName = (event) => {
         const name = event.target.value;
@@ -46,7 +45,14 @@ const Register = () => {
         createUserWithEmailAndPassword(email , password)
     }
 
-    const type = "up"
+    const type = "up";
+    
+    let errorElement;
+
+    if (error || googleError || githubError) 
+    {
+        errorElement = <div><p className='text-danger'>Error: {error?.message} {googleError?.message} {githubError?.message}</p></div>
+      }
 
     return (
         <div className='mar-10'>
@@ -78,7 +84,7 @@ const Register = () => {
                                     <div>
                                         <p>Already registered? <Link to='/login'> <button className='ms-3 btn btn-danger text-white'>Please login Here</button> </Link> </p>
                                     </div>
-                                    <SocialLogin type={type} signInWithGoogle = {signInWithGoogle} signInWithGithub = {signInWithGithub}></SocialLogin>
+                                    <SocialLogin type={type} signInWithGoogle = {signInWithGoogle} error={errorElement} signInWithGithub = {signInWithGithub}></SocialLogin>
                                 </Card.Text>
                             </Card.Body>
                         </Card>

@@ -38,8 +38,15 @@ const Login = () => {
         signInWithEmailAndPassword(email, password)
     }
 
-    if (user) {
+    if (user || googleUser || githubUser) {
         navigate('/home');
+    }
+
+    let errorElement;
+
+    if (error || googleError || githubError) 
+    {
+        errorElement = <div><p className='text-danger'>Error: {error?.message} {googleError?.message} {githubError?.message}</p></div>
     }
 
 
@@ -71,7 +78,7 @@ const Login = () => {
                                     <div>
                                         <p>New in Shutter Studio? <Link to='/register'> <button className='ms-3 btn btn-danger text-white'>Please Register Here</button> </Link> </p>
                                     </div>
-                                    <SocialLogin type={type} signInWithGoogle={signInWithGoogle} signInWithGithub = {signInWithGithub}></SocialLogin>
+                                    <SocialLogin type={type} error={errorElement} signInWithGoogle={signInWithGoogle} signInWithGithub = {signInWithGithub}></SocialLogin>
                                 </Card.Text>
                             </Card.Body>
                         </Card>
