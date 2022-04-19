@@ -1,7 +1,7 @@
-## Shutter Studio
+# Shutter Studio
 
 
-# A photography LLC
+## A photography LLC
 
 
 Live site Link : (https://shutter-studio-739ed.web.app/)
