@@ -13,22 +13,22 @@ const Service = (props) => {
 
     const [user] = useAuthState(auth)
 
-
+    
     return (
         <div>
             <div className="col">
-                <div class="card border-0 shadow-lg h-100">
-                    <div class="row g-0">
-                        <div class="col-md-6">
+                <div className="card border-0 shadow-lg h-100">
+                    <div className="row g-0">
+                        <div className="col-md-6">
                             <img src={img} class="img-fluid h-100" alt="card-img" />
                         </div>
                         <div class="col-md-6 p-2">
-                            <div class="card-body">
-                                <h4 class="card-title">{title}</h4>
-                                <p class="card-text">{description}</p>
-                                <p class="card-text"> price : ${price}</p>
+                            <div className="card-body">
+                                <h4 className="card-title">{title}</h4>
+                                <p className="card-text">{description}</p>
+                                <p className="card-text"> price : ${price}</p>
                                 <Link to="/cheackout">
-                                    <button class="card-btn" >Book Now</button>
+                                    <button className="card-btn" >Book Now</button>
                                 </Link>
                             </div>
                         </div>
